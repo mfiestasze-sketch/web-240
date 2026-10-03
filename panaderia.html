@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MALU | Panadería Artesanal</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&family=Pacifico&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Reset y estilos base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background-color: #fffaf5;
+      color: #4a3b2f;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Paleta de colores vibrantes */
+    :root {
+      --rosa: #e07a5f;
+      --rosa-claro: #f4a261;
+      --amarillo: #f4d35e;
+      --verde: #81b29a;
+      --azul: #5d8aa8;
+      --marron: #6b4423;
+      --crema: #fffaf5;
+      --beige: #f9e9d2;
+      --carbon: #4a3b2f;
+    }
+
+    /* Botones */
+    .btn {
+      display: inline-block;
+      background-color: var(--rosa);
+      border: 2px solid var(--rosa);
+      color: white;
+      padding: 12px 32px;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border-radius: 30px;
+    }
+
+    .btn:hover {
+      background-color: transparent;
+      color: var(--rosa);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: var(--rosa);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--rosa);
+      color: white;
+    }
+
+    /* ===== HEADER CON LOGO Y MENÚ ===== */
+    header {
+      background: linear-gradient(135deg, #fffaf5 0%, #f9e9d2 100%);
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 15px rgba(107, 68, 35, 0.08);
+      border-bottom: 3px solid var(--rosa);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-icon {
+      font-size: 2.2rem;
+      color: var(--rosa);
+    }
+
+    .logo-text {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.5rem;
+      color: var(--marron);
+      letter-spacing: 2px;
+      line-height: 1;
+    }
+
+    .logo-sub {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--rosa-claro);
+      font-weight: 700;
+      margin-top: -5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+      font-size: 0.9rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .nav-links a {
+      transition: color 0.2s;
+      position: relative;
+      padding-bottom: 5px;
+      color: var(--carbon);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background-color: var(--rosa-claro);
+      border-radius: 2px;
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--rosa);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: var(--marron);
+      cursor: pointer;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: linear-gradient(rgba(74, 59, 47, 0.6), rgba(74, 59, 47, 0.6)), url('https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=2072&auto=format&fit=crop') center/cover no-repeat;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 20px;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      padding: 40px 20px;
+    }
+
+    .hero-content h1 {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      line-height: 1.1;
+      text-shadow: 2px 2px 12px rgba(0,0,0,0.4);
+    }
+
+    .hero-content .tagline {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.5rem;
+      margin-bottom: 32px;
+      letter-spacing: 2px;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.4);
+    }
+
+    .hero-content p {
+      font-size: 1.15rem;
+      margin-bottom: 40px;
+      font-weight: 300;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+    }
+
+    /* ===== SECCIONES ===== */
+    .section-title {
+      text-align: center;
+      font-size: 2.8rem;
+      margin-bottom: 12px;
+      color: var(--marron);
+      letter-spacing: 1px;
+    }
+
+    .section-divider {
+      width: 90px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--rosa), var(--amarillo));
+      margin: 0 auto 20px;
+      border-radius: 3px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 0.95rem;
+      color: #8a7a6b;
+      margin-bottom: 50px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    /* ===== PRODUCTOS ===== */
+    .products {
+      padding: 90px 0;
+      background-color: var(--crema);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 35px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 6px 25px rgba(107, 68, 35, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+    }
+
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(107, 68, 35, 0.18);
+    }
+
+    .product-image {
+      position: relative;
+      overflow: hidden;
+      height: 250px;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .product-card:hover .product-image img {
+      transform: scale(1.1);
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background-color: var(--amarillo);
+      color: var(--marron);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .product-info {
+      padding: 28px 22px 30px;
+    }
+
+    .product-info h3 {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+      color: var(--marron);
+    }
+
+    .product-info p {
+      font-size: 0.9rem;
+      color: #7a6a5b;
+      margin-bottom: 16px;
+      font-weight: 300;
+    }
+
+    .product-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--rosa);
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .product-info .btn {
+      padding: 9px 26px;
+      font-size: 0.75rem;
+    }
+
+    /* ===== SOBRE NOSOTROS ===== */
+    .about {
+      padding: 90px 0;
+      background: linear-gradient(135deg, #f9e9d2 0%, #fdf1e3 100%);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-image {
+      position: relative;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(107, 68, 35, 0.2);
+    }
+
+    .about-image::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      width: 100%;
+      height: 100%;
+      border: 4px solid var(--rosa-claro);
+      border-radius: 20px;
+      z-index: -1;
+    }
+
+    .about-text h2 {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+      color: var(--marron);
+      line-height: 1.2;
+    }
+
+    .about-text .divider-left {
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--rosa), var(--amarillo));
+      margin-bottom: 28px;
+      border-radius: 3px;
+    }
+
+    .about-text p {
+      margin-bottom: 20px;
+      font-weight: 300;
+      color: #5a4a3b;
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    .about-features {
+      list-style: none;
+      margin: 28px 0 32px;
+    }
+
+    .about-features li {
+      margin-bottom: 14px;
+      font-size: 1rem;
+      color: #4a3a2b;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .about-features li i {
+      color: var(--verde);
+      font-size: 1.2rem;
+      width: 22px;
+    }
+
+    /* ===== CAFÉ / DESTACADO ===== */
+    .coffee-highlight {
+      padding: 100px 0;
+      background: linear-gradient(rgba(107, 68, 35, 0.85), rgba(107, 68, 35, 0.85)), url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+      text-align: center;
+      color: white;
+    }
+
+    .coffee-highlight h2 {
+      font-size: 3rem;
+      margin-bottom: 16px;
+      color: var(--amarillo);
+    }
+
+    .coffee-highlight .divider-center {
+      width: 100px;
+      height: 4px;
+      background: var(--amarillo);
+      margin: 0 auto 24px;
+      border-radius: 3px;
+    }
+
+    .coffee-highlight p {
+      font-size: 1.2rem;
+      max-width: 650px;
+      margin: 0 auto 36px;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+    .coffee-highlight .btn {
+      background-color: var(--amarillo);
+      border-color: var(--amarillo);
+      color: var(--marron);
+    }
+
+    .coffee-highlight .btn:hover {
+      background-color: transparent;
+      color: var(--amarillo);
+    }
+
+    /* ===== TESTIMONIOS ===== */
+    .testimonials {
+      padding: 90px 0;
+      background-color: var(--crema);
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .testimonial-card {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: 0 6px 25px rgba(107, 68, 35, 0.08);
+      text-align: center;
+      position: relative;
+      border-top: 5px solid var(--rosa-claro);
+      transition: transform 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .testimonial-card i.fa-quote-left {
+      color: var(--rosa);
+      font-size: 2rem;
+      margin-bottom: 20px;
+      opacity: 0.6;
+    }
+
+    .testimonial-card p {
+      font-style: italic;
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+      color: #5a4a3b;
+      line-height: 1.7;
+    }
+
+    .testimonial-card .stars {
+      color: var(--amarillo);
+      margin-bottom: 16px;
+      font-size: 1rem;
+      letter-spacing: 4px;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+
+    .testimonial-card h5 {
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-size: 0.8rem;
+      color: var(--marron);
+    }
+
+    /* ===== CONTACTO ===== */
+    .contact {
+      padding: 90px 0;
+      background: linear-gradient(135deg, #fdf1e3 0%, #f9e9d2 100%);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .contact-info h2 {
+      font-size: 2.6rem;
+      margin-bottom: 16px;
+      color: var(--marron);
+    }
+
+    .contact-info .divider-left {
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--rosa), var(--amarillo));
+      margin-bottom: 28px;
+      border-radius: 3px;
+    }
+
+    .contact-info p {
+      margin-bottom: 24px;
+      font-weight: 300;
+      color: #5a4a3b;
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    .contact-details {
+      list-style: none;
+      margin-top: 30px;
+    }
+
+    .contact-details li {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+      font-size: 1rem;
+      color: #4a3a2b;
+    }
+
+    .contact-details li i {
+      width: 45px;
+      height: 45px;
+      background-color: var(--rosa);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .contact-form {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(107, 68, 35, 0.1);
+    }
+
+    .contact-form h3 {
+      font-size: 1.8rem;
+      margin-bottom: 24px;
+      color: var(--marron);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--marron);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 2px solid #f0e4d4;
+      border-radius: 10px;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.95rem;
+      color: var(--carbon);
+      background-color: #fffaf5;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--rosa-claro);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .contact-form .btn {
+      width: 100%;
+      padding: 14px;
+      font-size: 0.9rem;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background-color: #3a2e26;
+      color: #d4c5b5;
+      padding: 60px 0 24px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .footer-col h4 {
+      color: white;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      margin-bottom: 22px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col li {
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+      font-weight: 300;
+    }
+
+    .footer-col a {
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover {
+      color: var(--rosa-claro);
+    }
+
+    .footer-logo {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.2rem;
+      color: white;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+
+    .footer-col p {
+      font-size: 0.9rem;
+      font-weight: 300;
+      margin-bottom: 16px;
+      line-height: 1.7;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .social-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border: 1px solid #5a4a3b;
+      border-radius: 50%;
+      transition: all 0.3s;
+      color: #d4c5b5;
+    }
+
+    .social-icons a:hover {
+      border-color: var(--rosa-claro);
+      color: var(--rosa-claro);
+      background-color: rgba(244, 162, 97, 0.1);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 24px;
+      border-top: 1px solid #4a3e32;
+      font-size: 0.85rem;
+      color: #8a7a6b;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .testimonial-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+      .about-image img {
+        height: 400px;
+      }
+      .about-image::before {
+        display: none;
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+      .hero-content h1 {
+        font-size: 3rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: var(--crema);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 35px;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        z-index: 99;
+        font-size: 1.1rem;
+      }
+
+      .nav-links.active {
+        transform: translateX(0);
+      }
+
+      .header-inner {
+        flex-wrap: nowrap;
+      }
+
+      .hero-content h1 {
+        font-size: 2.4rem;
+      }
+
+      .hero-content .tagline {
+        font-size: 1.2rem;
+      }
+
+      .hero-content {
+        padding: 30px 20px;
+      }
+
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .section-title {
+        font-size: 2.2rem;
+      }
+
+      .about-text h2 {
+        font-size: 2.2rem;
+      }
+
+      .coffee-highlight h2 {
+        font-size: 2.2rem;
+      }
+
+      .contact-info h2 {
+        font-size: 2.2rem;
+      }
+
+      .logo-text {
+        font-size: 2rem;
+      }
+
+      .logo-icon {
+        font-size: 1.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 12px 0;
+      }
+      .logo-text {
+        font-size: 1.6rem;
+      }
+      .logo-icon {
+        font-size: 1.5rem;
+      }
+      .logo-sub {
+        font-size: 0.6rem;
+        letter-spacing: 2px;
+      }
+      .hero-content h1 {
+        font-size: 1.9rem;
+      }
+      .hero-content .tagline {
+        font-size: 1rem;
+      }
+      .btn {
+        padding: 10px 24px;
+        font-size: 0.75rem;
+      }
+      .section-title {
+        font-size: 1.8rem;
+      }
+      .contact-form {
+        padding: 28px 22px;
+      }
+      .contact-details li i {
+        width: 38px;
+        height: 38px;
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER CON LOGO Y MENÚ ===== -->
+  <header>
+    <div class="container header-inner">
+      <div class="logo">
+        <i class="fas fa-bread-slice logo-icon"></i>
+        <div>
+          <div class="logo-text">MALU</div>
+          <div class="logo-sub">Panadería Artesanal</div>
+        </div>
+      </div>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menú">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#menu">Menú</a></li>
+        <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="inicio">
+      <div class="hero-content">
+        <h1>Panes.</h1>
+        <p class="tagline">Son los Pequeños Placeres de la Vida</p>
+        <p>Descubre el auténtico sabor del pan artesanal, horneado cada día con ingredientes naturales y mucho amor.</p>
+        <a href="#menu" class="btn">Ver nuestro menú</a>
+      </div>
+    </section>
+
+    <!-- ===== PRODUCTOS / MENÚ ===== -->
+    <section class="products container" id="menu">
+      <h2 class="section-title">Los mejores panes de la ciudad</h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">Horneados cada mañana con ingredientes de primera</p>
+
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?q=80&w=1974&auto=format&fit=crop" alt="Pan de masa madre">
+            <span class="product-badge">Nuevo</span>
+          </div>
+          <div class="product-info">
+            <h3>Masa Fermentada</h3>
+            <p>Fermentación lenta de 48 horas, corteza crujiente y miga alveolada.</p>
+            <p class="product-price">4,50 €</p>
+            <a href="#contacto" class="btn">Pedir</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=1974&auto=format&fit=crop" alt="Croissants de mantequilla">
+            <span class="product-badge">Favorito</span>
+          </div>
+          <div class="product-info">
+            <h3>Croissants</h3>
+            <p>Hojaldre francés elaborado con mantequilla de calidad y 27 capas.</p>
+            <p class="product-price">2,20 €</p>
+            <a href="#contacto" class="btn">Pedir</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=2072&auto=format&fit=crop" alt="Baguette tradicional">
+          </div>
+          <div class="product-info">
+            <h3>Baguette</h3>
+            <p>Receta clásica francesa, crujiente por fuera y tierna por dentro.</p>
+            <p class="product-price">1,80 €</p>
+            <a href="#contacto" class="btn">Pedir</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1587248720327-8eb72564be1e?q=80&w=1974&auto=format&fit=crop" alt="Tarta de manzana">
+            <span class="product-badge">Temporada</span>
+          </div>
+          <div class="product-info">
+            <h3>Postres</h3>
+            <p>Tarta de manzana con canela, base de hojaldre crujiente y manzanas frescas.</p>
+            <p class="product-price">12,50 €</p>
+            <a href="#contacto" class="btn">Pedir</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?q=80&w=1934&auto=format&fit=crop" alt="Magdalenas caseras">
+          </div>
+          <div class="product-info">
+            <h3>Magdalenas</h3>
+            <p>Esponjosas, con aroma a limón y un toque de aceite de oliva virgen.</p>
+            <p class="product-price">1,50 €</p>
+            <a href="#contacto" class="btn">Pedir</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=1989&auto=format&fit=crop" alt="Tarta de chocolate">
+            <span class="product-badge">Favorito</span>
+          </div>
+          <div class="product-info">
+            <h3>Tarta de Chocolate</h3>
+            <p>Intenso sabor a chocolate belga con cobertura de ganache sedosa.</p>
+            <p class="product-price">14,00 €</p>
+            <a href="#contacto" class="btn">Pedir</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SOBRE NOSOTROS ===== -->
+    <section class="about" id="sobre-nosotros">
+      <div class="container about-grid">
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1556217477-d325251ece38?q=80&w=1974&auto=format&fit=crop" alt="Panadero trabajando la masa">
+        </div>
+        <div class="about-text">
+          <h2>Nuestra Panadería</h2>
+          <div class="divider-left"></div>
+          <p>Este es un buen espacio para extenderte sobre tu compañía y servicios. Puedes usar este espacio para incorporar más detalles sobre tu empresa. Escribe sobre tu personal y los servicios que ofreces.</p>
+          <p>Cuéntales a los visitantes la historia sobre cómo se te ocurrió la idea de tu negocio y diles qué te diferencia de tus competidores. Haz que tu empresa se destaque y muestra a tus visitantes quién eres.</p>
+          <ul class="about-features">
+            <li><i class="fas fa-check-circle"></i> Masa madre natural, sin aditivos</li>
+            <li><i class="fas fa-check-circle"></i> Harinas ecológicas de molino local</li>
+            <li><i class="fas fa-check-circle"></i> Horneado diario en horno de leña</li>
+            <li><i class="fas fa-check-circle"></i> Recetas tradicionales y de temporada</li>
+          </ul>
+          <a href="#contacto" class="btn btn-outline">Contáctanos</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CAFÉ DESTACADO ===== -->
+    <section class="coffee-highlight">
+      <div class="container">
+        <h2>Comienza tu Día con Aroma a Café</h2>
+        <div class="divider-center"></div>
+        <p>Nada mejor que un buen pan recién hecho acompañado de un café humeante. Ven a disfrutar del auténtico desayuno de barrio.</p>
+        <a href="#contacto" class="btn">Reservar mesa</a>
+      </div>
+    </section>
+
+    <!-- ===== TESTIMONIOS ===== -->
+    <section class="testimonials container">
+      <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">Historias que saben a pan</p>
+
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <i class="fas fa-quote-left"></i>
+          <p>El pan de masa madre de MALU es simplemente espectacular. No hay mañana que no pase a por mi barra. ¡Se nota el cariño!</p>
+          <div class="stars">★★★★★</div>
+          <h5>— Carmen G.</h5>
+        </div>
+
+        <div class="testimonial-card">
+          <i class="fas fa-quote-left"></i>
+          <p>Las tartas son una obra de arte. Encargamos la de chocolate para un cumpleaños y fue el éxito de la fiesta. ¡Repetiremos seguro!</p>
+          <div class="stars">★★★★★</div>
+          <h5>— Andrés M.</h5>
+        </div>
+
+        <div class="testimonial-card">
+          <i class="fas fa-quote-left"></i>
+          <p>Desde que descubrí MALU, no compro pan en otro sitio. La calidad, el trato y el aroma que sale del obrador no tienen comparación.</p>
+          <div class="stars">★★★★★</div>
+          <h5>— Lucía R.</h5>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACTO ===== -->
+    <section class="contact" id="contacto">
+      <div class="container contact-grid">
+        <div class="contact-info">
+          <h2>Contacto</h2>
+          <div class="divider-left"></div>
+          <p>¿Quieres hacer un pedido o reservar una mesa?
